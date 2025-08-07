@@ -1,0 +1,26 @@
+name: 'openblock_dune_public'
+version: '1.0.0'
+config-version: 2
+
+# This project tracks Dune queries and their metadata
+# All data stays in Dune - no external materialization
+
+profile: 'default'
+
+# Paths for query organization
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+# Query registry
+vars:
+  dune_queries:
+    vesu_balances: 5526654  # Vesu daily user balances 
