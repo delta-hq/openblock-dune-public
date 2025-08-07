@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+  - name: dune_ingestion
+    description: "Raw data ingested from Dune Analytics queries"
+    tables:
+      - name: raw_ethereum_blocks
+        description: "Raw Ethereum block data from the last 7 days"
+        columns:
+          - name: block_number
+            description: "Ethereum block number"
+            tests:
+              - not_null
+              - unique
+          - name: block_timestamp
+            description: "Block timestamp"
+            tests:
+              - not_null
+          - name: block_hash
+            description: "Block hash"
+            tests:
+              - not_null
+              - unique
+          - name: gas_used
+            description: "Total gas used in the block"
+          - name: gas_limit
+            description: "Gas limit for the block"
+          - name: miner
+            description: "Address of the block miner"
+
+      - name: erc20_transfers
+        description: "ERC20 token transfer events from the last day"
+        columns:
+          - name: evt_block_time
+            description: "Timestamp of the transfer event"
+            tests:
+              - not_null
+          - name: evt_tx_hash
+            description: "Transaction hash containing the transfer"
+            tests:
+              - not_null
+          - name: contract_address
+            description: "ERC20 token contract address"
+            tests:
+              - not_null
+          - name: from
+            description: "Sender address"
+          - name: to
+            description: "Recipient address"
+          - name: raw_amount
+            description: "Raw transfer amount (before decimal adjustment)"
+          - name: amount
+            description: "Transfer amount adjusted for token decimals"
+
+      - name: defi_transactions
+        description: "DeFi protocol transactions from major platforms"
+        columns:
+          - name: block_time
+            description: "Transaction timestamp"
+            tests:
+              - not_null
+          - name: tx_hash
+            description: "Transaction hash"
+            tests:
+              - not_null
+          - name: user_address
+            description: "User address initiating the transaction"
+          - name: contract_address
+            description: "DeFi protocol contract address"
+          - name: protocol
+            description: "DeFi protocol name (Aave, Uniswap, SushiSwap, etc.)"
+          - name: eth_value
+            description: "ETH value of the transaction"
+          - name: tx_fee_eth
+            description: "Transaction fee in ETH" 

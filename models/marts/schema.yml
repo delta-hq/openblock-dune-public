@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: vesu_balances
+    description: Cleaned and transformed Vesu protocol user balances
+    columns:
+      - name: date
+        description: Date of the balance snapshot
+        tests:
+          - not_null
+      - name: user
+        description: User's StarkNet address
+        tests:
+          - not_null
+      - name: asset
+        description: Asset contract address
+        tests:
+          - not_null
+      - name: asset_symbol
+        description: Asset symbol (e.g., STRK, USDT)
+        tests:
+          - not_null
+      - name: total_supplied
+        description: Total amount supplied (decimal adjusted)
+      - name: total_borrowed
+        description: Total amount borrowed (decimal adjusted)
+      - name: rate_accumulator
+        description: Interest rate accumulator value
+      - name: debt_asset
+        description: Debt token contract address
+      - name: debt_asset_symbol
+        description: Debt token symbol
+      - name: amount_deposited
+        description: Deposit amount (decimal adjusted)
+      - name: amount_borrowed
+        description: Borrowed amount (decimal adjusted)
+      - name: net_position
+        description: Net position (supplied - borrowed)
+      - name: _extracted_at
+        description: Timestamp when data was extracted from Dune 

@@ -1,2 +1,13 @@
+# Query IDs for Data Ingestion
+# Add your actual Dune query IDs here
+# Format: Get the ID from the URL: https://dune.com/queries/<query_id>/...
 query_ids:
-  - 123456
+  - 5526654  # Vesu daily user balances
+  
+  # Example data ingestion queries (replace with your actual query IDs):
+  # - 1234567  # Raw blockchain data extraction
+  # - 2345678  # Token transfers aggregation  
+  # - 3456789  # DeFi protocol metrics
+  
+  # Uncomment and replace with your actual query IDs when ready:
+  # - your_query_id_here

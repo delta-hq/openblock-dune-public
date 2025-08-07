@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_vesu_balances
+    description: Raw Vesu protocol user balances from Dune Analytics
+    columns:
+      - name: date
+        description: Date of the balance snapshot
+        tests:
+          - not_null
+      - name: user
+        description: User's StarkNet address
+        tests:
+          - not_null
+      - name: asset
+        description: Asset contract address
+        tests:
+          - not_null
+      - name: asset_symbol
+        description: Asset symbol (e.g., STRK, USDT)
+      - name: asset_decimals
+        description: Number of decimals for the asset
+      - name: total_supplied_adjusted
+        description: Total amount supplied with rate accumulator applied
+      - name: total_borrowed_adjusted
+        description: Total amount borrowed with rate accumulator applied
+      - name: latest_accumulator
+        description: Latest rate accumulator value
+      - name: debt_asset
+        description: Debt token contract address
+      - name: debt_asset_symbol
+        description: Debt token symbol
+      - name: debt_decimals
+        description: Number of decimals for the debt token
+      - name: raw_amount_deposit
+        description: Raw deposit amount (before decimal adjustment)
+      - name: raw_amount_borrowed
+        description: Raw borrowed amount (before decimal adjustment) 
